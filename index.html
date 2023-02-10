@@ -29,6 +29,7 @@
           <label for="number">Total:</label>
           <input type="number" id="number" name="number" value="0" onchange="getJob(this.value)"><br><br>
     </div>
+    <h1 id="account_id"></h1>
 <div class="row">
     <div class="col-md-4">
         <div class="well">
@@ -68,8 +69,7 @@
     </div>
 </div>
 
-    <script>
-
+    <script >
 window.addEventListener('load', function() {
   var upload = document.getElementById('fileInput');
   
@@ -84,6 +84,34 @@ window.addEventListener('load', function() {
         reader.addEventListener('load', function() {
         var result = JSON.parse(reader.result);
         globalThis.jobs = result["outputs"]
+
+        data = result["outputs"][0]
+
+
+        document.getElementById("description").srcdoc = data.description;
+        document.getElementById("cleaned").srcdoc = data.cleaned;
+        document.getElementById("contact-info").srcdoc = data.contact_info;
+        document.getElementById("account_id").innerText = data.id;
+
+        document.getElementById("emails").innerHTML= "";
+        document.getElementById("phones").innerHTML= "";
+
+         let emailElement = document.createElement('ul');
+            for (let i = 0; i < data.emails.length; ++i) {
+            let listItem = document.createElement('li');
+            listItem.textContent = data.emails[i]
+            emailElement.appendChild(listItem)
+            }
+        document.getElementById("emails").appendChild(emailElement);
+
+
+ let phoneElement = document.createElement('ul');
+    for (let i = 0; i < data.phones.length; ++i) {
+    let listItem = document.createElement('li');
+    listItem.textContent = data.phones[i]
+    phoneElement.appendChild(listItem)
+    }
+document.getElementById("phones").appendChild(phoneElement);
 
         document.getElementById("counter").style.visibility = "visible";
         });
@@ -102,6 +130,7 @@ console.log(data.emails.length)
 document.getElementById("description").srcdoc = data.description;
 document.getElementById("cleaned").srcdoc = data.cleaned;
 document.getElementById("contact-info").srcdoc = data.contact_info;
+document.getElementById("account_id").innerText = data.id;
 
 document.getElementById("emails").innerHTML= "";
 document.getElementById("phones").innerHTML= "";

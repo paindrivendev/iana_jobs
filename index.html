@@ -1,10 +1,128 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>My Cool Website</title>
-   </head>
-   <body>
-      <h1>Welcome to my website! ⭐️</h1>
-      <p>How was your day? 🎉</p>
-   </body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <title>File Input</title>
+    <style>
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+      input[type="number"]:hover,
+      input[type="number"]:focus {
+        -moz-appearance: number-input;
+      }
+
+        .red {
+            background:#f97171;
+        }
+        .orange {
+            background:#f99e50;
+        }
+        .yellow {
+            background:#f5d55f;
+        }
+    </style>
+  </head>
+  <body>
+    <input type="file" id="fileInput">
+    <div id="counter" >
+          <label for="number">Total:</label>
+          <input type="number" id="number" name="number" value="0" onchange="getJob(this.value)"><br><br>
+    </div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="well">
+        <h1>Description</h1>
+        <iframe id="description"  width="600" height="800" ></iframe>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="well">
+                <h1>Cleaned Description</h1>
+                                <iframe id="cleaned" width="600" height="800"  ></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="well">
+                <h1>Emails</h1>
+                <div id="emails"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="well">
+                <h1>Contact Info</h1>
+                                <iframe id="contact-info" width="600" height="400" ></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="well">
+                <h1>Phones</h1>
+                <div id="phones"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+
+window.addEventListener('load', function() {
+  var upload = document.getElementById('fileInput');
+  
+  if (upload) 
+  {
+    upload.addEventListener('change', function() {
+      // Make sure a file was selected
+      if (upload.files.length > 0) 
+      {
+        var reader = new FileReader();
+        
+        reader.addEventListener('load', function() {
+        var result = JSON.parse(reader.result);
+        globalThis.jobs = result["outputs"]
+
+        document.getElementById("counter").style.visibility = "visible";
+        });
+        
+        reader.readAsText(upload.files[0]);
+      }
+    });
+  }
+});
+
+function getJob(val) {
+console.log("new val")
+console.log(val)
+var data = this.jobs[parseInt(val)]
+console.log(data.emails.length)
+document.getElementById("description").srcdoc = data.description;
+document.getElementById("cleaned").srcdoc = data.cleaned;
+document.getElementById("contact-info").srcdoc = data.contact_info;
+
+document.getElementById("emails").innerHTML= "";
+document.getElementById("phones").innerHTML= "";
+
+ let emailElement = document.createElement('ul');
+    for (let i = 0; i < data.emails.length; ++i) {
+    let listItem = document.createElement('li');
+    listItem.textContent = data.emails[i]
+    emailElement.appendChild(listItem)
+    }
+document.getElementById("emails").appendChild(emailElement);
+
+
+ let phoneElement = document.createElement('ul');
+    for (let i = 0; i < data.phones.length; ++i) {
+    let listItem = document.createElement('li');
+    listItem.textContent = data.phones[i]
+    phoneElement.appendChild(listItem)
+    }
+document.getElementById("phones").appendChild(phoneElement);
+}
+    </script>
+  </body>
 </html>

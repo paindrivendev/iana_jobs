@@ -1,173 +1,247 @@
-<!DOCTYPE html>
-<html class="devise-layout-html">
-<head prefix="og: http://ogp.me/ns#">
-<meta charset="utf-8">
-<title>Sign in · GitLab</title>
-<link rel="preload" href="/assets/application_utilities-40332a5b8b231ef4aa3e61942c84552407facf300fe4081ae0d70a5517018bd4.css" as="style" type="text/css">
-<link rel="preload" href="/assets/application-ba1723ee38768ca6dcce3e345b1f4cef7372520f2adbb0b5be32a0e6a2b6d5df.css" as="style" type="text/css">
-<link rel="preload" href="/assets/highlight/themes/white-e4a0a599c798742d5817c43bbc1ddf7745ac1b7f9c4fadf6e24a6b9bc49ffec4.css" as="style" type="text/css">
-
-<meta content="IE=edge" http-equiv="X-UA-Compatible">
-
-
-
-<link rel="shortcut icon" type="image/png" href="/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png" id="favicon" data-original-href="/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png" />
-<style>
-@keyframes blinking-dot{0%{opacity:1}25%{opacity:0.4}75%{opacity:0.4}100%{opacity:1}}@keyframes gl-spinner-rotate{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}body.ui-indigo{--gl-theme-accent: #6666c4}body.ui-indigo .navbar-gitlab{background-color:#292961}body.ui-indigo .navbar-gitlab .navbar-collapse{color:#d1d1f0}body.ui-indigo .navbar-gitlab .container-fluid .navbar-toggler{border-left:1px solid #6868b9;color:#d1d1f0}body.ui-indigo .navbar-gitlab .navbar-sub-nav>li>a:hover,body.ui-indigo .navbar-gitlab .navbar-sub-nav>li>a:focus,body.ui-indigo .navbar-gitlab .navbar-sub-nav>li>button:hover,body.ui-indigo .navbar-gitlab .navbar-sub-nav>li>button:focus,body.ui-indigo .navbar-gitlab .navbar-nav>li>a:hover,body.ui-indigo .navbar-gitlab .navbar-nav>li>a:focus,body.ui-indigo .navbar-gitlab .navbar-nav>li>button:hover,body.ui-indigo .navbar-gitlab .navbar-nav>li>button:focus{background-color:rgba(209,209,240,0.2)}body.ui-indigo .navbar-gitlab .navbar-sub-nav>li.active>a,body.ui-indigo .navbar-gitlab .navbar-sub-nav>li.active>button,body.ui-indigo .navbar-gitlab .navbar-sub-nav>li.dropdown.show>a,body.ui-indigo .navbar-gitlab .navbar-sub-nav>li.dropdown.show>button,body.ui-indigo .navbar-gitlab .navbar-nav>li.active>a,body.ui-indigo .navbar-gitlab .navbar-nav>li.active>button,body.ui-indigo .navbar-gitlab .navbar-nav>li.dropdown.show>a,body.ui-indigo .navbar-gitlab .navbar-nav>li.dropdown.show>button{color:#292961;background-color:#fff}body.ui-indigo .navbar-gitlab .navbar-sub-nav>li.line-separator,body.ui-indigo .navbar-gitlab .navbar-nav>li.line-separator{border-left:1px solid rgba(209,209,240,0.2)}body.ui-indigo .navbar-gitlab .navbar-sub-nav{color:#d1d1f0}body.ui-indigo .navbar-gitlab .nav>li{color:#d1d1f0}body.ui-indigo .navbar-gitlab .nav>li.header-search-new{color:#333238}body.ui-indigo .navbar-gitlab .nav>li>a .notification-dot{border:2px solid #292961}body.ui-indigo .navbar-gitlab .nav>li>a.header-help-dropdown-toggle .notification-dot{background-color:#d1d1f0}body.ui-indigo .navbar-gitlab .nav>li>a.header-user-dropdown-toggle .header-user-avatar{border-color:#d1d1f0}@media (min-width: 576px){body.ui-indigo .navbar-gitlab .nav>li>a:hover,body.ui-indigo .navbar-gitlab .nav>li>a:focus{background-color:rgba(209,209,240,0.2)}}body.ui-indigo .navbar-gitlab .nav>li>a:hover svg,body.ui-indigo .navbar-gitlab .nav>li>a:focus svg{fill:currentColor}body.ui-indigo .navbar-gitlab .nav>li>a:hover .notification-dot,body.ui-indigo .navbar-gitlab .nav>li>a:focus .notification-dot{will-change:border-color, background-color;border-color:#4a4a82}body.ui-indigo .navbar-gitlab .nav>li>a.header-help-dropdown-toggle:hover .notification-dot,body.ui-indigo .navbar-gitlab .nav>li>a.header-help-dropdown-toggle:focus .notification-dot{background-color:#fff}body.ui-indigo .navbar-gitlab .nav>li.active>a,body.ui-indigo .navbar-gitlab .nav>li.dropdown.show>a{color:#292961;background-color:#fff}body.ui-indigo .navbar-gitlab .nav>li.active>a:hover svg,body.ui-indigo .navbar-gitlab .nav>li.dropdown.show>a:hover svg{fill:#292961}body.ui-indigo .navbar-gitlab .nav>li.active>a .notification-dot,body.ui-indigo .navbar-gitlab .nav>li.dropdown.show>a .notification-dot{border-color:#fff}body.ui-indigo .navbar-gitlab .nav>li.active>a.header-help-dropdown-toggle .notification-dot,body.ui-indigo .navbar-gitlab .nav>li.dropdown.show>a.header-help-dropdown-toggle .notification-dot{background-color:#292961}body.ui-indigo .navbar-gitlab .nav>li .impersonated-user svg,body.ui-indigo .navbar-gitlab .nav>li .impersonated-user:hover svg{fill:#292961}body.ui-indigo .navbar .title>a:hover,body.ui-indigo .navbar .title>a:focus{background-color:rgba(209,209,240,0.2)}body.ui-indigo .header-search{background-color:rgba(209,209,240,0.2) !important;border-radius:4px}body.ui-indigo .header-search:hover{background-color:rgba(209,209,240,0.3) !important}body.ui-indigo .header-search.is-focused input{background-color:#fff;color:#333238 !important;box-shadow:inset 0 0 0 1px #333238}body.ui-indigo .header-search.is-focused input:focus{box-shadow:inset 0 0 0 1px #333238, 0 0 0 1px #fff, 0 0 0 3px #428fdc}body.ui-indigo .header-search.is-focused input::placeholder{color:#89888d}body.ui-indigo .header-search svg.gl-search-box-by-type-search-icon{color:rgba(209,209,240,0.8)}body.ui-indigo .header-search input{background-color:transparent;color:rgba(209,209,240,0.8);box-shadow:inset 0 0 0 1px rgba(209,209,240,0.4)}body.ui-indigo .header-search input::placeholder{color:rgba(209,209,240,0.8)}body.ui-indigo .header-search input:focus::placeholder,body.ui-indigo .header-search input:active::placeholder{color:#89888d}body.ui-indigo .header-search .keyboard-shortcut-helper{color:#d1d1f0;background-color:rgba(209,209,240,0.2)}body.ui-indigo .search form{background-color:rgba(209,209,240,0.2)}body.ui-indigo .search form:hover{background-color:rgba(209,209,240,0.3)}body.ui-indigo .search .search-input::placeholder{color:rgba(209,209,240,0.8)}body.ui-indigo .search .search-input-wrap .search-icon,body.ui-indigo .search .search-input-wrap .clear-icon{fill:rgba(209,209,240,0.8)}body.ui-indigo .search.search-active form{background-color:#fff}body.ui-indigo .search.search-active .search-input-wrap .search-icon{fill:rgba(209,209,240,0.8)}body.ui-indigo .search-sidebar .nav-link.active,body.ui-indigo .search-sidebar .nav-link:hover{background-color:rgba(236,236,239,0.8);color:#333238}body.ui-indigo .nav-sidebar li.active>a{color:#333238}body.ui-indigo .nav-sidebar .fly-out-top-item a,body.ui-indigo .nav-sidebar .fly-out-top-item a:hover,body.ui-indigo .nav-sidebar .fly-out-top-item.active a,body.ui-indigo .nav-sidebar .fly-out-top-item .fly-out-top-item-container{background-color:var(--gray-100, #ececef);color:var(--gray-900, #333238)}body.ui-indigo .branch-header-title{color:#4b4ba3}body.ui-indigo .ide-sidebar-link.active{color:#4b4ba3}body.ui-indigo .ide-sidebar-link.active.is-right{box-shadow:inset -3px 0 #4b4ba3}
-
-*,*::before,*::after{box-sizing:border-box}html{font-family:sans-serif;line-height:1.15}header{display:block}body{margin:0;font-family:var(--default-regular-font, -apple-system),BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",Ubuntu,Cantarell,"Helvetica Neue",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#333238;text-align:left;background-color:#fff}hr{box-sizing:content-box;height:0;overflow:visible}h1,h3{margin-top:0;margin-bottom:0.25rem}p{margin-top:0;margin-bottom:1rem}a{color:#1f75cb;text-decoration:none;background-color:transparent}a:not([href]):not([class]){color:inherit;text-decoration:none}img{vertical-align:middle;border-style:none}svg{overflow:hidden;vertical-align:middle}label{display:inline-block;margin-bottom:0.5rem}button{border-radius:0}input,button{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,input{overflow:visible}button{text-transform:none}[role="button"]{cursor:pointer}button:not(:disabled),[type="button"]:not(:disabled),[type="submit"]:not(:disabled){cursor:pointer}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{padding:0;border-style:none}input[type="checkbox"]{box-sizing:border-box;padding:0}fieldset{min-width:0;padding:0;margin:0;border:0}[hidden]{display:none !important}h1,h3{margin-bottom:0.25rem;font-weight:600;line-height:1.2;color:#333238}h1{font-size:2.1875rem}h3{font-size:1.53125rem}hr{margin-top:0.5rem;margin-bottom:0.5rem;border:0;border-top:1px solid rgba(0,0,0,0.1)}.container{width:100%;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width: 576px){.container{max-width:540px}}@media (min-width: 768px){.container{max-width:720px}}@media (min-width: 992px){.container{max-width:960px}}@media (min-width: 1200px){.container{max-width:1140px}}.row{display:flex;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}.col-md-6,.col-sm-12{position:relative;width:100%;padding-right:15px;padding-left:15px}.order-1{order:1}.order-12{order:12}@media (min-width: 576px){.col-sm-12{flex:0 0 100%;max-width:100%}.order-sm-1{order:1}.order-sm-12{order:12}}@media (min-width: 768px){.col-md-6{flex:0 0 50%;max-width:50%}}.form-control{display:block;width:100%;height:32px;padding:0.375rem 0.75rem;font-size:0.875rem;font-weight:400;line-height:1.5;color:#333238;background-color:#fff;background-clip:padding-box;border:1px solid #89888d;border-radius:0.25rem}.form-control::placeholder{color:#626168;opacity:1}.form-control:disabled{background-color:#fbfafd;opacity:1}.form-group{margin-bottom:1rem}.btn{display:inline-block;font-weight:400;color:#333238;text-align:center;vertical-align:middle;-webkit-user-select:none;user-select:none;background-color:transparent;border:1px solid transparent;padding:0.375rem 0.75rem;font-size:1rem;line-height:20px;border-radius:0.25rem}.btn:disabled{opacity:0.65}.btn:not(:disabled):not(.disabled){cursor:pointer}fieldset:disabled a.btn{pointer-events:none}.btn-block{display:block;width:100%}.btn-block+.btn-block{margin-top:0.5rem}input.btn-block[type="submit"],input.btn-block[type="button"]{width:100%}.custom-control{position:relative;z-index:1;display:block;min-height:1.5rem;padding-left:1.5rem;print-color-adjust:exact}.custom-control-input{position:absolute;left:0;z-index:-1;width:1rem;height:1.25rem;opacity:0}.custom-control-input:checked~.custom-control-label::before{color:#fff;border-color:#007bff;background-color:#007bff}.custom-control-input:not(:disabled):active~.custom-control-label::before{color:#fff;background-color:#b3d7ff;border-color:#b3d7ff}.custom-control-input:disabled~.custom-control-label{color:#626168}.custom-control-input:disabled~.custom-control-label::before{background-color:#fbfafd}.custom-control-label{position:relative;margin-bottom:0;vertical-align:top}.custom-control-label::before{position:absolute;top:0.25rem;left:-1.5rem;display:block;width:1rem;height:1rem;pointer-events:none;content:"";background-color:#fff;border:1px solid #737278}.custom-control-label::after{position:absolute;top:0.25rem;left:-1.5rem;display:block;width:1rem;height:1rem;content:"";background:50% / 50% 50% no-repeat}.custom-checkbox .custom-control-label::before{border-radius:0.25rem}.custom-checkbox .custom-control-input:checked~.custom-control-label::after{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e")}.custom-checkbox .custom-control-input:indeterminate~.custom-control-label::before{border-color:#007bff;background-color:#007bff}.custom-checkbox .custom-control-input:indeterminate~.custom-control-label::after{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3e%3cpath stroke='%23fff' d='M0 2h4'/%3e%3c/svg%3e")}.custom-checkbox .custom-control-input:disabled:checked~.custom-control-label::before{background-color:rgba(0,123,255,0.5)}.custom-checkbox .custom-control-input:disabled:indeterminate~.custom-control-label::before{background-color:rgba(0,123,255,0.5)}.tab-content>.tab-pane{display:none}.tab-content>.active{display:block}.navbar{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:0.25rem 0.5rem}.navbar .container{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}.clearfix::after{display:block;clear:both;content:""}.fixed-top{position:fixed;top:0;right:0;left:0;z-index:1030}.mt-3{margin-top:1rem !important}.mb-3{margin-bottom:1rem !important}.text-nowrap{white-space:nowrap !important}.font-weight-normal{font-weight:400 !important}.gl-form-input,.gl-form-input.form-control{background-color:#fff;font-family:var(--default-regular-font, -apple-system),BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",Ubuntu,Cantarell,"Helvetica Neue",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:0.875rem;line-height:1rem;padding-top:0.5rem;padding-bottom:0.5rem;padding-left:0.75rem;padding-right:0.75rem;height:auto;color:#333238;box-shadow:inset 0 0 0 1px #89888d;border-style:none;-webkit-appearance:none;appearance:none;-moz-appearance:none}.gl-form-input:disabled,.gl-form-input:not(.form-control-plaintext):not([type="color"]):read-only,.gl-form-input.form-control:disabled,.gl-form-input.form-control:not(.form-control-plaintext):not([type="color"]):read-only{background-color:#fbfafd;box-shadow:inset 0 0 0 1px #dcdcde}.gl-form-input:disabled,.gl-form-input.form-control:disabled{cursor:not-allowed;color:#737278}.gl-form-input::placeholder,.gl-form-input.form-control::placeholder{color:#89888d}.gl-form-checkbox{font-size:0.875rem;line-height:1rem;color:#333238}.gl-form-checkbox .custom-control-input:disabled,.gl-form-checkbox .custom-control-input:disabled~.custom-control-label{cursor:not-allowed;color:#89888d}.gl-form-checkbox.custom-control{padding-left:1rem}.gl-form-checkbox.custom-control .custom-control-input~.custom-control-label{cursor:pointer;padding-left:0.5rem;margin-bottom:0.5rem}.gl-form-checkbox.custom-control .custom-control-input~.custom-control-label::before,.gl-form-checkbox.custom-control .custom-control-input~.custom-control-label::after{top:0;left:-1rem}.gl-form-checkbox.custom-control .custom-control-input~.custom-control-label::before{background-color:#fff;border-color:#89888d}.gl-form-checkbox.custom-control .custom-control-input:checked~.custom-control-label::before{background-color:#1f75cb;border-color:#1f75cb}.gl-form-checkbox.custom-control .custom-control-input[type="checkbox"]:checked~.custom-control-label::after,.gl-form-checkbox.custom-control .custom-control-input[type="checkbox"]:indeterminate~.custom-control-label::after{background:none;background-color:#fff;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center center;mask-position:center center}.gl-form-checkbox.custom-control .custom-control-input[type="checkbox"]:checked~.custom-control-label::after{-webkit-mask-image:url('data:image/svg+xml,%3Csvg width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M1 3.05299L2.99123 5L7 1" stroke="white" stroke-width="2"/%3E%3C/svg%3E%0A');mask-image:url('data:image/svg+xml,%3Csvg width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M1 3.05299L2.99123 5L7 1" stroke="white" stroke-width="2"/%3E%3C/svg%3E%0A')}.gl-form-checkbox.custom-control .custom-control-input[type="checkbox"]:indeterminate~.custom-control-label::after{-webkit-mask-image:url('data:image/svg+xml,%3Csvg width="8" height="2" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 1L8 1" stroke="white" stroke-width="2"/%3E%3C/svg%3E%0A');mask-image:url('data:image/svg+xml,%3Csvg width="8" height="2" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 1L8 1" stroke="white" stroke-width="2"/%3E%3C/svg%3E%0A')}.gl-form-checkbox.custom-control.custom-checkbox .custom-control-input:indeterminate~.custom-control-label::before{background-color:#1f75cb;border-color:#1f75cb}.gl-form-checkbox.custom-control .custom-control-input:disabled~.custom-control-label{cursor:not-allowed}.gl-form-checkbox.custom-control .custom-control-input:disabled~.custom-control-label::before{background-color:#ececef;border-color:#dcdcde;pointer-events:auto}.gl-form-checkbox.custom-control .custom-control-input:checked:disabled~.custom-control-label::before,.gl-form-checkbox.custom-control .custom-control-input[type="checkbox"]:indeterminate:disabled~.custom-control-label::before{background-color:#dcdcde;border-color:#dcdcde}.gl-form-checkbox.custom-control .custom-control-input:checked:disabled~.custom-control-label::after,.gl-form-checkbox.custom-control .custom-control-input[type="checkbox"]:indeterminate:disabled~.custom-control-label::after{background-color:#737278}.gl-button{display:inline-flex}.gl-button:not(.btn-link):active{text-decoration:none}.gl-button.gl-button,.gl-button.gl-button.btn-block{border-width:0;padding-top:0.5rem;padding-bottom:0.5rem;padding-left:0.75rem;padding-right:0.75rem;background-color:transparent;line-height:1rem;color:#333238;fill:currentColor;box-shadow:inset 0 0 0 1px #bfbfc3;justify-content:center;align-items:center;font-size:0.875rem;border-radius:0.25rem}.gl-button.gl-button .gl-button-text,.gl-button.gl-button.btn-block .gl-button-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-top:1px;padding-bottom:1px;margin-top:-1px;margin-bottom:-1px}.gl-button.gl-button .gl-button-icon,.gl-button.gl-button.btn-block .gl-button-icon{height:1rem;width:1rem;flex-shrink:0;margin-right:0.25rem;top:auto}.gl-button.gl-button.btn-default,.gl-button.gl-button.btn-block.btn-default{background-color:#fff}.gl-button.gl-button.btn-default:active,.gl-button.gl-button.btn-default.active,.gl-button.gl-button.btn-block.btn-default:active,.gl-button.gl-button.btn-block.btn-default.active{box-shadow:inset 0 0 0 1px #626168, 0 0 0 1px #fff, 0 0 0 3px #428fdc;outline:none;background-color:#dcdcde}.gl-button.gl-button.btn-confirm,.gl-button.gl-button.btn-block.btn-confirm{color:#fff}.gl-button.gl-button.btn-confirm,.gl-button.gl-button.btn-block.btn-confirm{background-color:#1f75cb;box-shadow:inset 0 0 0 1px #1068bf}.gl-button.gl-button.btn-confirm:active,.gl-button.gl-button.btn-confirm.active,.gl-button.gl-button.btn-block.btn-confirm:active,.gl-button.gl-button.btn-block.btn-confirm.active{box-shadow:inset 0 0 0 1px #033464, 0 0 0 1px #fff, 0 0 0 3px #428fdc;outline:none;background-color:#0b5cad}body{font-size:0.875rem}button,html [type="button"],[type="submit"],[role="button"]{cursor:pointer}h1,h3{margin-top:20px;margin-bottom:10px}hr{overflow:hidden}svg{vertical-align:baseline}.form-control{font-size:0.875rem}.hidden{display:none !important;visibility:hidden !important}html{overflow-y:scroll}body.navless{background-color:#fff !important}.container{padding-top:0;z-index:5}.container .content{margin:0}@media (max-width: 575.98px){.container .content{margin-top:20px}}.navless-container{margin-top:var(--header-height, 48px);padding-top:32px}.btn{border-radius:4px;font-size:0.875rem;font-weight:400;padding:6px 10px;background-color:#fff;border-color:#dcdcde;color:#333238;color:#333238;white-space:nowrap}.btn:active{background-color:#ececef;box-shadow:none}.btn:active,.btn.active{background-color:#e6e6ea;border-color:#dedee3;color:#333238}.btn svg{height:15px;width:15px}.btn svg:not(:last-child){margin-right:5px}.btn-block{width:100%;margin:0}.btn-block.btn{padding:6px 0}:root{--performance-bar-height: 0px;--system-header-height: 0px;--top-bar-height: 0px;--system-footer-height: 0px;--mr-review-bar-height: 0px}.tab-content{overflow:visible}@media (max-width: 767.98px){.tab-content{isolation:isolate}}hr{margin:1.5rem 0;border-top:1px solid #ececef}.footer-links{margin-bottom:20px}.footer-links a{margin-right:15px}.flash-container{margin:0;margin-bottom:16px;font-size:14px;position:relative;z-index:1}.flash-container.sticky{position:sticky;top:calc( var(--header-height, 48px) + calc(var(--system-header-height) + var(--performance-bar-height)) + var(--top-bar-height));z-index:251}.flash-container.flash-container-page{margin-bottom:0}.flash-container:empty{margin:0}input{border-radius:0.25rem;color:#333238;background-color:#fff}label{font-weight:600}label.custom-control-label{font-weight:400}label.label-bold{font-weight:600}.form-control{border-radius:4px;padding:6px 10px}.form-control::placeholder{color:#89888d}.gl-show-field-errors .form-control:not(textarea){height:32px}.navbar-empty{justify-content:center;height:var(--header-height, 48px);background:#fff;border-bottom:1px solid #dcdcde}.navbar-empty .tanuki-logo,.navbar-empty .brand-header-logo{max-height:100%}.tanuki-logo .tanuki{fill:#e24329}.tanuki-logo .left-cheek,.tanuki-logo .right-cheek{fill:#fc6d26}.tanuki-logo .chin{fill:#fca326}input::-moz-placeholder{color:#89888d;opacity:1}input::-ms-input-placeholder{color:#89888d}input:-ms-input-placeholder{color:#89888d}svg{fill:currentColor}.fixed-top{top:calc(var(--system-header-height) + var(--performance-bar-height))}.gl-display-flex{display:flex}.gl-display-inline-block{display:inline-block}.gl-flex-wrap{flex-wrap:wrap}.gl-justify-content-center{justify-content:center}.gl-justify-content-space-between{justify-content:space-between}.gl-float-right{float:right}.gl-w-10{width:3.5rem}.gl-w-half{width:50%}.gl-w-90p{width:90%}.gl-w-full{width:100%}@media (max-width: 575.98px){.gl-xs-w-full{width:100%}}.gl-p-5{padding:1rem}.gl-px-5{padding-left:1rem;padding-right:1rem}.gl-pt-5{padding-top:1rem}.gl-mt-3{margin-top:0.5rem}.gl-mt-5{margin-top:1rem}.gl-mr-auto{margin-right:auto}.gl-mr-2{margin-right:0.25rem}.gl-mb-1{margin-bottom:0.125rem}.gl-mb-2{margin-bottom:0.25rem}.gl-mb-3{margin-bottom:0.5rem}.gl-ml-auto{margin-left:auto}.gl-ml-2{margin-left:0.25rem}@media (min-width: 576px){.gl-sm-mt-0{margin-top:0}}.gl-text-center{text-align:center}.gl-font-size-h2{font-size:1.1875rem}.gl-font-weight-normal{font-weight:400}.gl-font-weight-bold{font-weight:600}.cloak-startup,.content-wrapper>.alert-wrapper,#content-body,.modal-dialog{display:none}
-
-</style>
-
-
-<link rel="stylesheet" media="print" href="/assets/application-ba1723ee38768ca6dcce3e345b1f4cef7372520f2adbb0b5be32a0e6a2b6d5df.css" />
-<link rel="stylesheet" media="print" href="/assets/page_bundles/login-369bcede071dfeea000dc97fc3a6a3f76712b059c29d5cab01250218a045406f.css" />
-<link rel="stylesheet" media="print" href="/assets/application_utilities-40332a5b8b231ef4aa3e61942c84552407facf300fe4081ae0d70a5517018bd4.css" />
-
-
-<link rel="stylesheet" media="print" href="/assets/fonts-3dcf267c9a9dc2c5b7a0ae5b757830104751a7ece87820521d6bb22dd665b2f8.css" />
-<link rel="stylesheet" media="print" href="/assets/highlight/themes/white-e4a0a599c798742d5817c43bbc1ddf7745ac1b7f9c4fadf6e24a6b9bc49ffec4.css" />
-<script>
-//<![CDATA[
-document.querySelectorAll('link[media="print"]').forEach(linkTag => {
-  linkTag.setAttribute('data-startupcss', 'loading');
-  const startupLinkLoadedEvent = new CustomEvent('CSSStartupLinkLoaded');
-  linkTag.addEventListener('load',function(){this.media='all';this.setAttribute('data-startupcss', 'loaded');document.dispatchEvent(startupLinkLoadedEvent);},{once: true});
-})
-
-//]]>
-</script>
-
-<script>
-//<![CDATA[
-window.gon={};
-//]]>
-</script>
-
-
-
-
-
-
-
-<script src="/assets/webpack/runtime.fc8039aa.bundle.js" defer="defer"></script>
-<script src="/assets/webpack/main.85c8f05c.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/commons-pages.registrations.new-pages.sessions.new.aed9f84f.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/pages.sessions.new.93d4f366.chunk.js" defer="defer"></script>
-
-<meta content="object" property="og:type">
-<meta content="GitLab" property="og:site_name">
-<meta content="Sign in · GitLab" property="og:title">
-<meta content="GitLab Community Edition" property="og:description">
-<meta content="https://gitlab.experteer.com/assets/twitter_card-570ddb06edf56a2312253c5872489847a0f385112ddbcd71ccfa1570febab5d2.jpg" property="og:image">
-<meta content="64" property="og:image:width">
-<meta content="64" property="og:image:height">
-<meta content="https://gitlab.experteer.com/users/sign_in" property="og:url">
-<meta content="summary" property="twitter:card">
-<meta content="Sign in · GitLab" property="twitter:title">
-<meta content="GitLab Community Edition" property="twitter:description">
-<meta content="https://gitlab.experteer.com/assets/twitter_card-570ddb06edf56a2312253c5872489847a0f385112ddbcd71ccfa1570febab5d2.jpg" property="twitter:image">
-
-<meta content="GitLab Community Edition" name="description">
-<link href="/-/manifest.json" rel="manifest">
-<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
-<meta content="#292961" name="theme-color">
-<meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="QSeaJJkZyG5E2MZbIXRpVz9BpGvUgs6V_rtGNl1t4_uGUvWhC4uxt7FeabcovjM0bBpIVKKe-JFCf7TGAqUkIQ" />
-<meta name="csp-nonce" />
-<meta name="action-cable-url" content="/-/cable" />
-<link rel="apple-touch-icon" type="image/x-icon" href="/assets/apple-touch-icon-b049d4bc0dd9626f31db825d61880737befc7835982586d015bded10b4435460.png" />
-<link href="/search/opensearch.xml" rel="search" title="Search GitLab" type="application/opensearchdescription+xml">
-
-
-
-
-
-</head>
-
-<body class="login-page application navless ui-indigo gl-browser-generic gl-platform-other" data-page="sessions:new" data-qa-selector="login_page">
-
-<script>
-//<![CDATA[
-gl = window.gl || {};
-gl.client = {"isGeneric":true,"isOther":true};
-
-
-//]]>
-</script>
-<div class="page-wrap borderless">
-<div class="login-page-broadcast">
-
-
-</div>
-<div class="container navless-container">
-<div class="content">
-<div class="flash-container flash-container-page sticky" data-qa-selector="flash_container">
-</div>
-
-<div class="mt-3">
-<div class="col-sm-12 gl-text-center">
-<img alt="GitLab Community Edition" class="gl-w-10 lazy" data-src="/assets/logo-911de323fa0def29aaf817fca33916653fc92f3ff31647ac41d2c39bbe243edb.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
-<h1 class="mb-3 gl-font-size-h2">
-GitLab Community Edition
-</h1>
-
-</div>
-</div>
-<div class="mb-3">
-<div class="gl-w-half gl-xs-w-full gl-ml-auto gl-mr-auto bar">
-
-<div id="signin-container">
-<div class="tab-content">
-<div class="login-box tab-pane active" id="login-pane" role="tabpanel">
-<div class="login-body">
-<form class="new_user gl-show-field-errors js-arkose-labs-form" id="new_user" aria-live="assertive" data-testid="sign-in-form" action="/users/sign_in" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="pPyOEumXEtqzmebgPlJ2q03r2yV5kWD-QGiZZxmTqXRjieGXewVrA0YfSQw3mCzIHrA3Gg-NVvr8rGuXRlturg" autocomplete="off" /><div class="form-group gl-px-5 gl-pt-5">
-<label for="user_login" class="label-bold gl-mb-1">Username or email</label>
-
-<input class="form-control gl-form-input top js-username-field" autofocus="autofocus" autocapitalize="off" autocorrect="off" required="required" title="This field is required." data-qa-selector="login_field" data-testid="username-field" type="text" name="user[login]" id="user_login" />
-</div>
-<div class="form-group gl-px-5">
-<label class="label-bold gl-mb-1" for="user_password">Password</label>
-<input class="form-control gl-form-input bottom" autocomplete="current-password" required="required" title="This field is required." data-qa-selector="password_field" data-testid="password-field" type="password" name="user[password]" id="user_password" />
-</div>
-<div class="gl-px-5">
-<div class="gl-display-inline-block">
-<div class="gl-form-checkbox custom-control custom-checkbox">
-<input name="user[remember_me]" type="hidden" value="0" autocomplete="off" /><input class="custom-control-input" type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" />
-<label class="custom-control-label" for="user_remember_me"><span>Remember me</span></label>
-</div>
-
-</div>
-<div class="gl-float-right">
-<a href="/users/password/new">Forgot your password?</a>
-</div>
-</div>
-<div></div>
-<div class="submit-container move-submit-down gl-px-5">
-<button name="button" type="submit" class="gl-button btn btn-block btn-confirm js-sign-in-button" data-qa-selector="sign_in_button" data-testid="sign-in-button">Sign in</button>
-</div>
-</form>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<hr class="footer-fixed">
-<div class="container footer-container gl-display-flex gl-justify-content-space-between">
-<div class="footer-links">
-<a href="https://about.gitlab.com">About GitLab</a>
-<a target="_blank" class="text-nowrap" rel="noopener noreferrer" href="https://forum.gitlab.com">Community forum</a>
-</div>
-<div class="js-language-switcher" data-locales="[{&quot;value&quot;:&quot;en&quot;,&quot;percentage&quot;:100,&quot;text&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;zh_CN&quot;,&quot;percentage&quot;:99,&quot;text&quot;:&quot;简体中文&quot;},{&quot;value&quot;:&quot;fr&quot;,&quot;percentage&quot;:99,&quot;text&quot;:&quot;français&quot;},{&quot;value&quot;:&quot;zh_TW&quot;,&quot;percentage&quot;:98,&quot;text&quot;:&quot;繁體中文 (台灣)&quot;}]"></div>
-
-</div>
-
-
-</div>
-</body>
-</html>
+username,date,time_in,time_out,time_break,is_home_office,created_at,daily_activity_attributes
+apahrevi,2023-12-01,09:00:00,11:00:00,00:00,Yes,2023-11-29 10:54:47.808,"{'project_name': 'Marketing B2C', 'created_at': '2023-11-29 10:54:47.808000', 'time_spent': '02:00'}"
+apahrevi,2023-12-05,09:00:00,13:00:00,00:00,Yes,2023-11-29 10:55:12.000,"{'project_name': 'Marketing B2C', 'created_at': '2023-11-29 10:55:12', 'time_spent': '04:00'}"
+apahrevi,2023-12-07,09:00:00,13:00:00,00:00,Yes,2023-11-29 10:55:39.648,"{'project_name': 'Marketing B2C', 'created_at': '2023-11-29 10:55:39.648000', 'time_spent': '04:00'}"
+apahrevi,2023-12-11,13:00:00,18:00:00,00:00,No,2023-11-29 10:56:52.224,"{'project_name': 'Marketing B2C', 'created_at': '2023-11-29 10:56:52.224000', 'time_spent': '05:00'}"
+apahrevi,2023-12-13,09:00:00,13:00:00,00:00,Yes,2023-11-29 10:57:40.608,"{'project_name': 'Marketing B2C', 'created_at': '2023-11-29 10:57:40.608000', 'time_spent': '04:00'}"
+apahrevi,2023-12-19,09:00:00,13:00:00,00:00,No,2023-11-29 10:58:14.304,"{'project_name': 'Marketing B2C', 'created_at': '2023-11-29 10:58:14.304000', 'time_spent': '04:00'}"
+apahrevi,2023-12-21,09:00:00,13:00:00,00:00,Yes,2023-11-29 10:58:44.544,"{'project_name': 'Marketing B2C', 'created_at': '2023-11-29 10:58:44.544000', 'time_spent': '04:00'}"
+mshchelkunov,2023-12-01,11:00:00,15:00:00,,Yes,2023-12-05 11:40:59.520,"{'project_name': 'DSE Quality', 'created_at': '2023-12-05 11:40:59.520000', 'time_spent': '04:00'}"
+dsylari,2023-12-01,13:00:00,17:00:00,,No,2023-12-01 17:03:18.432,"{'project_name': 'DSE Tech', 'created_at': '2023-12-01 17:03:18.432000', 'time_spent': '04:00'}"
+mkajo,2023-12-01,13:00:00,17:00:00,,No,2023-12-01 17:04:25.824,"{'project_name': 'DSE Quality', 'created_at': '2023-12-01 17:04:25.824000', 'time_spent': '04:00'}"
+jalmendrasvilla,2023-12-01,15:00:00,20:30:00,,No,2023-12-01 20:30:37.440,"{'project_name': 'DSE Quality', 'created_at': '2023-12-01 20:30:37.440000', 'time_spent': '05:30'}"
+gleka,2023-12-01,18:00:00,22:00:00,00:00,Yes,2023-12-02 14:23:13.344,"{'project_name': 'DSE Tech', 'created_at': '2023-12-02 14:23:13.344000', 'time_spent': '04:00'}"
+aminaeva,2023-12-01,20:00:00,23:00:00,,Yes,2023-12-02 22:44:49.920,"{'project_name': 'DSE Jobs', 'created_at': '2023-12-02 22:44:49.920000', 'time_spent': '03:00'}"
+aminaeva,2023-12-02,12:00:00,16:00:00,,Yes,2023-12-03 18:20:12.192,"{'project_name': 'Sales B2B', 'created_at': '2023-12-03 18:20:12.192000', 'time_spent': '04:00'}"
+aminaeva,2023-12-03,14:00:00,18:01:00,,Yes,2023-12-04 00:27:08.640,"{'project_name': 'DSE Quality', 'created_at': '2023-12-04 00:27:08.640000', 'time_spent': '04:01'}"
+bsendziuk,2023-12-04,09:00:00,18:00:00,01:00,Yes,2023-12-04 10:34:21.792,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-04 10:34:21.792000', 'time_spent': '08:00'}"
+arahma,2023-12-04,08:00:00,17:00:00,01:00,No,2023-12-04 14:18:42.048,"{'project_name': 'DSE Tech', 'created_at': '2023-12-04 14:18:42.048000', 'time_spent': '08:00'}"
+gleka,2023-12-04,08:00:00,16:30:00,00:30,Yes,2023-12-04 16:32:21.696,"{'project_name': 'DSE Tech', 'created_at': '2023-12-04 16:32:21.696000', 'time_spent': '08:00'}"
+idoebold,2023-12-04,13:30:00,16:30:00,,Yes,2023-12-04 16:34:24.384,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-04 16:34:24.384000', 'time_spent': '03:00'}"
+rtao,2023-12-04,08:00:00,17:00:00,01:00,No,2023-12-04 17:07:11.712,"{'project_name': 'IT', 'created_at': '2023-12-04 17:07:11.712000', 'time_spent': '08:00'}"
+dsylari,2023-12-04,08:30:00,14:00:00,01:30,Yes,2023-12-04 17:30:56.448,"{'project_name': 'DSE Tech', 'created_at': '2023-12-04 17:30:56.448000', 'time_spent': '04:00'}"
+jalmendrasvilla,2023-12-04,09:00:00,17:30:00,,No,2023-12-04 17:31:57.792,"{'project_name': 'DSE Quality', 'created_at': '2023-12-04 17:31:57.792000', 'time_spent': '08:30'}"
+mkajo,2023-12-04,11:30:00,17:30:00,02:00,Yes,2023-12-04 17:34:54.048,"{'project_name': 'DSE Quality', 'created_at': '2023-12-04 17:34:54.048000', 'time_spent': '04:00'}"
+pstolpa2,2023-12-04,09:00:00,14:00:00,00:45,No,2023-12-05 08:43:36.768,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-05 08:43:36.768000', 'time_spent': '04:15'}"
+bsendziuk,2023-12-05,09:00:00,13:00:00,,Yes,2023-12-05 09:07:33.600,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-05 09:07:33.600000', 'time_spent': '04:00'}"
+mshchelkunov,2023-12-04,11:00:00,15:00:00,,No,2023-12-05 11:41:32.352,"{'project_name': 'DSE Quality', 'created_at': '2023-12-05 11:41:32.352000', 'time_spent': '04:00'}"
+pstolpa2,2023-12-05,08:30:00,13:45:00,,No,2023-12-05 13:24:50.688,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-05 13:24:50.688000', 'time_spent': '05:15'}"
+mkajo,2023-12-05,11:00:00,16:00:00,01:00,Yes,2023-12-05 16:00:48.672,"{'project_name': 'DSE Quality', 'created_at': '2023-12-05 16:00:48.672000', 'time_spent': '04:00'}"
+gleka,2023-12-05,08:15:00,17:30:00,01:15,Yes,2023-12-05 17:30:04.608,"{'project_name': 'DSE Tech', 'created_at': '2023-12-05 17:30:04.608000', 'time_spent': '08:00'}"
+dsylari,2023-12-05,11:00:00,16:00:00,01:00,Yes,2023-12-05 18:17:26.304,"{'project_name': 'DSE Tech', 'created_at': '2023-12-05 18:17:26.304000', 'time_spent': '04:00'}"
+jalmendrasvilla,2023-12-05,12:00:00,19:30:00,,Yes,2023-12-05 19:33:40.320,"{'project_name': 'DSE Quality', 'created_at': '2023-12-05 19:33:40.320000', 'time_spent': '07:30'}"
+aminaeva,2023-12-04,11:15:00,15:30:00,,No,2023-12-06 02:07:15.168,"{'project_name': 'Sales B2B', 'created_at': '2023-12-06 02:07:15.168000', 'time_spent': '04:15'}"
+mpietraszko,2023-12-01,09:00:00,17:00:00,,No,2023-12-06 09:26:34.944,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-06 09:26:34.944000', 'time_spent': '08:00'}"
+mpietraszko,2023-12-04,08:00:00,16:00:00,,Yes,2023-12-06 09:27:19.008,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-06 09:27:19.008000', 'time_spent': '08:00'}"
+bsendziuk,2023-12-06,09:00:00,18:00:00,01:00,Yes,2023-12-06 09:28:28.128,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-06 09:28:28.128000', 'time_spent': '08:00'}"
+mpietraszko,2023-12-05,08:00:00,16:00:00,,Yes,2023-12-06 09:29:38.976,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-06 09:29:38.976000', 'time_spent': '08:00'}"
+gleka,2023-12-06,08:30:00,12:30:00,00:00,Yes,2023-12-06 12:35:48.768,"{'project_name': 'DSE Tech', 'created_at': '2023-12-06 12:35:48.768000', 'time_spent': '04:00'}"
+pstolpa2,2023-12-06,08:15:00,14:00:00,00:25,No,2023-12-06 13:35:48.192,"{'project_name': 'Sales B2B', 'created_at': '2023-12-06 13:35:48.192000', 'time_spent': '05:20'}"
+idoebold,2023-12-06,13:30:00,15:30:00,,Yes,2023-12-06 15:52:19.776,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-06 15:52:19.776000', 'time_spent': '02:00'}"
+mkajo,2023-12-06,10:30:00,16:00:00,01:30,Yes,2023-12-06 16:06:29.952,"{'project_name': 'DSE Quality', 'created_at': '2023-12-06 16:06:29.952000', 'time_spent': '04:00'}"
+dsylari,2023-12-06,10:30:00,17:00:00,02:30,Yes,2023-12-06 17:06:20.736,"{'project_name': 'DSE Tech', 'created_at': '2023-12-06 17:06:20.736000', 'time_spent': '04:00'}"
+msarac,2023-12-06,13:00:00,17:00:00,00:00,No,2023-12-06 17:34:38.496,"{'project_name': 'IT', 'created_at': '2023-12-06 17:34:38.496000', 'time_spent': '04:00'}"
+mshchelkunov,2023-12-05,11:00:00,15:00:00,,No,2023-12-06 18:13:57.216,"{'project_name': 'DSE Quality', 'created_at': '2023-12-06 18:13:57.216000', 'time_spent': '04:00'}"
+mshchelkunov,2023-12-06,12:00:00,16:00:00,,Yes,2023-12-14 10:24:39.456,"{'project_name': 'DSE Quality', 'created_at': '2023-12-14 10:24:39.456000', 'time_spent': '04:00'}"
+aminaeva,2023-12-06,16:00:00,23:00:00,,Yes,2023-12-07 01:42:12.672,"{'project_name': 'DSE Jobs', 'created_at': '2023-12-07 01:42:12.672000', 'time_spent': '07:00'}"
+kokuyama,2023-12-05,09:00:00,16:55:00,00:15,Yes,2023-12-07 09:47:46.752,"{'project_name': 'IT', 'created_at': '2023-12-07 09:47:46.752000', 'time_spent': '07:40'}"
+pstolpa2,2023-12-07,08:45:00,14:30:00,00:00,No,2023-12-07 14:24:43.200,"{'project_name': 'Sales B2B', 'created_at': '2023-12-07 14:24:43.200000', 'time_spent': '05:45'}"
+dsylari,2023-12-07,12:30:00,16:30:00,,No,2023-12-07 16:34:07.104,"{'project_name': 'DSE Tech', 'created_at': '2023-12-07 16:34:07.104000', 'time_spent': '04:00'}"
+mshchelkunov,2023-12-07,12:00:00,16:00:00,,No,2023-12-07 16:39:32.832,"{'project_name': 'DSE Quality', 'created_at': '2023-12-07 16:39:32.832000', 'time_spent': '04:00'}"
+mkajo,2023-12-07,12:40:00,16:40:00,,No,2023-12-07 16:39:36.288,"{'project_name': 'DSE Quality', 'created_at': '2023-12-07 16:39:36.288000', 'time_spent': '04:00'}"
+rtao,2023-12-07,08:00:00,17:30:00,01:30,Yes,2023-12-07 17:40:18.912,"{'project_name': 'IT', 'created_at': '2023-12-07 17:40:18.912000', 'time_spent': '08:00'}"
+kokuyama,2023-12-06,11:30:00,17:35:00,00:30,Yes,2023-12-08 11:49:00.768,"{'project_name': 'IT', 'created_at': '2023-12-08 11:49:00.768000', 'time_spent': '05:35'}"
+kokuyama,2023-12-08,10:15:00,16:45:00,00:00,Yes,2023-12-08 11:49:41.376,"{'project_name': 'IT', 'created_at': '2023-12-08 11:49:41.376000', 'time_spent': '06:30'}"
+mristic,2023-12-01,10:00:00,18:00:00,,Yes,2023-12-08 13:24:07.488,"{'project_name': 'IT', 'created_at': '2023-12-08 13:24:07.488000', 'time_spent': '08:00'}"
+mristic,2023-12-04,10:00:00,14:00:00,,Yes,2023-12-08 13:25:12.288,"{'project_name': 'IT', 'created_at': '2023-12-08 13:25:12.288000', 'time_spent': '04:00'}"
+mristic,2023-12-05,10:00:00,14:00:00,,Yes,2023-12-08 13:25:36.480,"{'project_name': 'IT', 'created_at': '2023-12-08 13:25:36.480000', 'time_spent': '04:00'}"
+mristic,2023-12-06,10:00:00,14:00:00,,Yes,2023-12-08 13:26:14.496,"{'project_name': 'IT', 'created_at': '2023-12-08 13:26:14.496000', 'time_spent': '04:00'}"
+jalmendrasvilla,2023-12-08,08:00:00,12:00:00,,Yes,2023-12-08 16:38:48.768,"{'project_name': 'DSE Quality', 'created_at': '2023-12-08 16:38:48.768000', 'time_spent': '04:00'}"
+mkajo,2023-12-08,12:30:00,17:00:00,00:30,Yes,2023-12-08 17:03:33.120,"{'project_name': 'DSE Quality', 'created_at': '2023-12-08 17:03:33.120000', 'time_spent': '04:00'}"
+dsylari,2023-12-08,12:30:00,17:00:00,00:30,Yes,2023-12-08 17:16:38.496,"{'project_name': 'DSE Tech', 'created_at': '2023-12-08 17:16:38.496000', 'time_spent': '04:00'}"
+aminaeva,2023-12-08,18:00:00,22:01:00,,Yes,2023-12-09 02:35:24.288,"{'project_name': 'DSE Jobs', 'created_at': '2023-12-09 02:35:24.288000', 'time_spent': '04:01'}"
+mshchelkunov,2023-12-08,12:00:00,16:00:00,,Yes,2023-12-09 14:19:58.080,"{'project_name': 'DSE Quality', 'created_at': '2023-12-09 14:19:58.080000', 'time_spent': '04:00'}"
+idoebold,2023-12-09,14:30:00,17:30:00,,Yes,2023-12-09 18:30:55.872,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-09 18:30:55.872000', 'time_spent': '03:00'}"
+khayeche,2023-12-01,10:00:00,19:00:00,01:00,,2023-12-10 10:51:43.776,"{'project_name': 'DSE Jobs', 'created_at': '2023-12-10 10:51:43.776000', 'time_spent': '08:00'}"
+aminaeva,2023-12-09,18:00:00,20:00:00,,Yes,2023-12-10 17:04:20.640,"{'project_name': 'Sales B2B', 'created_at': '2023-12-10 17:04:20.640000', 'time_spent': '02:00'}"
+aminaeva,2023-12-10,18:00:00,20:45:00,,Yes,2023-12-10 22:43:30.432,"{'project_name': 'DSE Jobs', 'created_at': '2023-12-10 22:43:30.432000', 'time_spent': '02:45'}"
+bsendziuk,2023-12-11,09:00:00,18:00:00,01:00,No,2023-12-11 11:19:17.472,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-11 11:19:17.472000', 'time_spent': '08:00'}"
+fschinner,2023-12-06,09:00:00,17:30:00,00:30,No,2023-12-11 12:48:55.008,"{'project_name': 'IT', 'created_at': '2023-12-11 12:48:55.008000', 'time_spent': '08:00'}"
+dsylari,2023-12-11,11:15:00,15:45:00,00:30,No,2023-12-11 15:55:03.936,"{'project_name': 'DSE Tech', 'created_at': '2023-12-11 15:55:03.936000', 'time_spent': '04:00'}"
+mkajo,2023-12-11,11:15:00,16:00:00,00:45,No,2023-12-11 15:59:19.680,"{'project_name': 'DSE Quality', 'created_at': '2023-12-11 15:59:19.680000', 'time_spent': '04:00'}"
+jalmendrasvilla,2023-12-11,09:05:00,17:00:00,,No,2023-12-11 16:59:38.112,"{'project_name': 'DSE Quality', 'created_at': '2023-12-11 16:59:38.112000', 'time_spent': '07:55'}"
+gleka,2023-12-11,08:30:00,17:00:00,00:30,Yes,2023-12-11 16:59:53.664,"{'project_name': 'DSE Tech', 'created_at': '2023-12-11 16:59:53.664000', 'time_spent': '08:00'}"
+khayeche,2023-12-05,14:00:00,18:00:00,,Yes,2023-12-11 17:34:51.456,"{'project_name': 'DSE Jobs', 'created_at': '2023-12-11 17:34:51.456000', 'time_spent': '04:00'}"
+aminaeva,2023-12-11,11:15:00,19:45:00,01:30,No,2023-12-11 19:49:42.816,"{'project_name': 'DSE Jobs', 'created_at': '2023-12-11 19:49:42.816000', 'time_spent': '07:00'}"
+rtao,2023-12-11,09:00:00,18:00:00,01:00,No,2023-12-11 20:39:39.168,"{'project_name': 'IT', 'created_at': '2023-12-11 20:39:39.168000', 'time_spent': '08:00'}"
+desfandyari,2023-12-04,09:30:00,15:00:00,00:00,Yes,2023-12-11 22:38:46.176,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-11 22:38:46.176000', 'time_spent': '05:30'}"
+desfandyari,2023-12-05,09:30:00,15:00:00,00:00,Yes,2023-12-11 22:39:20.736,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-11 22:39:20.736000', 'time_spent': '05:30'}"
+desfandyari,2023-12-06,09:30:00,12:00:00,00:00,Yes,2023-12-11 22:40:59.232,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-11 22:40:59.232000', 'time_spent': '02:30'}"
+desfandyari,2023-12-08,13:00:00,17:00:00,00:00,Yes,2023-12-11 22:41:51.936,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-11 22:41:51.936000', 'time_spent': '04:00'}"
+desfandyari,2023-12-11,11:00:00,17:30:00,00:00,No,2023-12-11 22:42:53.280,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-11 22:42:53.280000', 'time_spent': '06:30'}"
+abueb,2023-12-11,16:00:00,18:00:00,00:00,Yes,2023-12-12 08:54:55.872,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-12 08:54:55.872000', 'time_spent': '02:00'}"
+bsendziuk,2023-12-12,09:00:00,18:00:00,01:00,No,2023-12-12 09:06:23.616,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-12 09:06:23.616000', 'time_spent': '08:00'}"
+pstolpa2,2023-12-08,09:30:00,12:00:00,00:00,No,2023-12-12 09:43:08.544,"{'project_name': 'Sales B2B', 'created_at': '2023-12-12 09:43:08.544000', 'time_spent': '02:30'}"
+pstolpa2,2023-12-11,09:30:00,17:30:00,00:45,No,2023-12-12 09:44:10.752,"{'project_name': 'Sales B2B', 'created_at': '2023-12-12 09:44:10.752000', 'time_spent': '07:15'}"
+arahma,2023-12-05,08:00:00,17:00:00,01:00,No,2023-12-12 11:04:03.360,"{'project_name': 'DSE Tech', 'created_at': '2023-12-12 11:04:03.360000', 'time_spent': '08:00'}"
+arahma,2023-12-06,08:00:00,13:00:00,01:00,No,2023-12-12 11:04:43.104,"{'project_name': 'DSE Tech', 'created_at': '2023-12-12 11:04:43.104000', 'time_spent': '04:00'}"
+arahma,2023-12-12,08:00:00,17:00:00,01:00,No,2023-12-12 11:06:05.184,"{'project_name': 'DSE Tech', 'created_at': '2023-12-12 11:06:05.184000', 'time_spent': '08:00'}"
+arahma,2023-12-13,08:00:00,13:00:00,01:00,No,2023-12-12 11:06:57.024,"{'project_name': 'DSE Tech', 'created_at': '2023-12-12 11:06:57.024000', 'time_spent': '04:00'}"
+mshchelkunov,2023-12-11,11:00:00,15:00:00,,Yes,2023-12-12 12:04:30.432,"{'project_name': 'DSE Quality', 'created_at': '2023-12-12 12:04:30.432000', 'time_spent': '04:00'}"
+pstolpa2,2023-12-12,08:45:00,13:00:00,00:00,No,2023-12-12 12:44:02.112,"{'project_name': 'Sales B2B', 'created_at': '2023-12-12 12:44:02.112000', 'time_spent': '04:15'}"
+khayeche,2023-12-08,09:00:00,18:00:00,01:00,,2023-12-12 13:49:33.312,"{'project_name': 'DSE Jobs', 'created_at': '2023-12-12 13:49:33.312000', 'time_spent': '08:00'}"
+gleka,2023-12-12,08:00:00,16:15:00,00:15,No,2023-12-12 15:14:25.728,"{'project_name': 'DSE Tech', 'created_at': '2023-12-12 15:14:25.728000', 'time_spent': '07:00'}"
+dsylari,2023-12-12,11:30:00,15:30:00,,No,2023-12-12 15:30:26.496,"{'project_name': 'DSE Tech', 'created_at': '2023-12-12 15:30:26.496000', 'time_spent': '04:00'}"
+mkajo,2023-12-12,11:30:00,15:30:00,,No,2023-12-12 15:30:33.408,"{'project_name': 'DSE Quality', 'created_at': '2023-12-12 15:30:33.408000', 'time_spent': '04:00'}"
+mvadodaria,2023-12-01,09:00:00,17:00:00,01:00,No,2023-12-12 16:15:25.632,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-12 16:15:25.632000', 'time_spent': '07:00'}"
+mvadodaria,2023-12-04,09:00:00,17:00:00,01:00,No,2023-12-12 16:16:03.648,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-12 16:16:03.648000', 'time_spent': '07:00'}"
+mvadodaria,2023-12-05,09:00:00,17:00:00,01:00,No,2023-12-12 16:16:32.160,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-12 16:16:32.160000', 'time_spent': '07:00'}"
+mvadodaria,2023-12-06,09:00:00,17:00:00,01:00,No,2023-12-12 16:17:08.448,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-12 16:17:08.448000', 'time_spent': '07:00'}"
+mvadodaria,2023-12-08,09:00:00,14:00:00,,No,2023-12-12 16:17:34.368,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-12 16:17:34.368000', 'time_spent': '05:00'}"
+mvadodaria,2023-12-11,09:00:00,18:00:00,01:00,No,2023-12-12 16:18:11.520,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-12 16:18:11.520000', 'time_spent': '08:00'}"
+mvadodaria,2023-12-12,09:00:00,17:00:00,00:30,No,2023-12-12 16:30:45.792,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-12 16:30:45.792000', 'time_spent': '07:30'}"
+abueb,2023-12-12,09:00:00,18:00:00,01:00,Yes,2023-12-12 16:58:40.224,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-12 16:58:40.224000', 'time_spent': '08:00'}"
+jalmendrasvilla,2023-12-12,10:00:00,18:00:00,,No,2023-12-12 18:00:30.240,"{'project_name': 'DSE Quality', 'created_at': '2023-12-12 18:00:30.240000', 'time_spent': '08:00'}"
+bsendziuk,2023-12-13,09:00:00,18:00:00,01:00,Yes,2023-12-13 10:04:48.000,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-13 10:04:48', 'time_spent': '08:00'}"
+bsendziuk,2023-12-15,09:00:00,13:00:00,,Yes,2023-12-13 10:05:45.024,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-13 10:05:45.024000', 'time_spent': '04:00'}"
+kokuyama,2023-12-12,13:00:00,17:15:00,00:00,Yes,2023-12-13 10:20:07.296,"{'project_name': 'IT', 'created_at': '2023-12-13 10:20:07.296000', 'time_spent': '04:15'}"
+mshchelkunov,2023-12-12,10:00:00,14:00:00,,Yes,2023-12-13 11:35:45.888,"{'project_name': 'DSE Quality', 'created_at': '2023-12-13 11:35:45.888000', 'time_spent': '04:00'}"
+idoebold,2023-12-13,09:00:00,12:00:00,,Yes,2023-12-13 12:08:23.712,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-13 12:08:23.712000', 'time_spent': '03:00'}"
+pstolpa2,2023-12-13,09:00:00,13:00:00,00:00,No,2023-12-13 12:42:17.568,"{'project_name': 'Sales B2B', 'created_at': '2023-12-13 12:42:17.568000', 'time_spent': '04:00'}"
+gleka,2023-12-13,09:10:00,13:10:00,00:00,Yes,2023-12-13 13:10:24.960,"{'project_name': 'DSE Tech', 'created_at': '2023-12-13 13:10:24.960000', 'time_spent': '04:00'}"
+mpietraszko,2023-12-08,08:00:00,12:00:00,,Yes,2023-12-13 14:45:47.232,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-13 14:45:47.232000', 'time_spent': '04:00'}"
+mpietraszko,2023-12-12,08:00:00,16:00:00,,No,2023-12-13 14:46:25.248,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-13 14:46:25.248000', 'time_spent': '08:00'}"
+mkajo,2023-12-13,11:30:00,15:30:00,,Yes,2023-12-13 15:33:22.752,"{'project_name': 'DSE Quality', 'created_at': '2023-12-13 15:33:22.752000', 'time_spent': '04:00'}"
+dsylari,2023-12-13,11:30:00,16:00:00,00:30,Yes,2023-12-13 16:01:24.096,"{'project_name': 'DSE Tech', 'created_at': '2023-12-13 16:01:24.096000', 'time_spent': '04:00'}"
+desfandyari,2023-12-12,10:00:00,13:45:00,00:00,Yes,2023-12-13 16:37:37.056,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-13 16:37:37.056000', 'time_spent': '03:45'}"
+desfandyari,2023-12-13,11:30:00,16:00:00,00:00,No,2023-12-13 16:39:12.960,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-13 16:39:12.960000', 'time_spent': '04:30'}"
+mshchelkunov,2023-12-13,11:00:00,15:00:00,,Yes,2023-12-14 10:24:11.808,"{'project_name': 'DSE Quality', 'created_at': '2023-12-14 10:24:11.808000', 'time_spent': '04:00'}"
+fschinner,2023-12-13,09:00:00,17:15:00,00:15,No,2023-12-13 18:48:38.592,"{'project_name': 'IT', 'created_at': '2023-12-13 18:48:38.592000', 'time_spent': '08:00'}"
+khayeche,2023-12-11,14:00:00,20:00:00,,,2023-12-13 21:43:13.728,"{'project_name': 'DSE Jobs', 'created_at': '2023-12-13 21:43:13.728000', 'time_spent': '06:00'}"
+msarac,2023-12-07,09:00:00,17:00:00,00:00,No,2023-12-14 10:09:20.160,"{'project_name': 'IT', 'created_at': '2023-12-14 10:09:20.160000', 'time_spent': '08:00'}"
+msarac,2023-12-08,09:00:00,17:00:00,00:00,No,2023-12-14 10:10:20.640,"{'project_name': 'IT', 'created_at': '2023-12-14 10:10:20.640000', 'time_spent': '08:00'}"
+msarac,2023-12-13,13:00:00,17:00:00,00:00,Yes,2023-12-14 10:11:04.704,"{'project_name': 'IT', 'created_at': '2023-12-14 10:11:04.704000', 'time_spent': '04:00'}"
+msarac,2023-12-14,10:00:00,18:00:00,00:00,No,2023-12-14 10:11:46.176,"{'project_name': 'IT', 'created_at': '2023-12-14 10:11:46.176000', 'time_spent': '08:00'}"
+mvadodaria,2023-12-14,09:00:00,17:00:00,00:30,No,2023-12-14 11:43:32.448,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-14 11:43:32.448000', 'time_spent': '07:30'}"
+mvadodaria,2023-12-15,09:00:00,17:00:00,01:00,No,2023-12-14 11:44:05.280,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-14 11:44:05.280000', 'time_spent': '07:00'}"
+mvadodaria,2023-12-13,09:00:00,17:00:00,01:00,No,2023-12-14 12:05:55.968,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-14 12:05:55.968000', 'time_spent': '07:00'}"
+pstolpa2,2023-12-14,09:15:00,13:30:00,00:45,No,2023-12-14 13:33:49.824,"{'project_name': 'Sales B2B', 'created_at': '2023-12-14 13:33:49.824000', 'time_spent': '03:30'}"
+mkajo,2023-12-14,11:30:00,16:00:00,00:30,Yes,2023-12-14 16:02:09.888,"{'project_name': 'DSE Quality', 'created_at': '2023-12-14 16:02:09.888000', 'time_spent': '04:00'}"
+rtao,2023-12-14,08:00:00,17:00:00,01:00,No,2023-12-14 17:04:09.408,"{'project_name': 'IT', 'created_at': '2023-12-14 17:04:09.408000', 'time_spent': '08:00'}"
+aminaeva,2023-12-13,13:00:00,15:00:00,,No,2023-12-14 17:26:52.800,"{'project_name': 'Sales B2B', 'created_at': '2023-12-14 17:26:52.800000', 'time_spent': '02:00'}"
+mshchelkunov,2023-12-14,11:00:00,15:00:00,,Yes,2023-12-14 17:47:04.992,"{'project_name': 'DSE Quality', 'created_at': '2023-12-14 17:47:04.992000', 'time_spent': '04:00'}"
+mristic,2023-12-07,14:00:00,18:00:00,,Yes,2023-12-14 21:04:05.376,"{'project_name': 'IT', 'created_at': '2023-12-14 21:04:05.376000', 'time_spent': '04:00'}"
+mristic,2023-12-08,14:00:00,18:00:00,,Yes,2023-12-14 21:07:13.728,"{'project_name': 'IT', 'created_at': '2023-12-14 21:07:13.728000', 'time_spent': '04:00'}"
+mristic,2023-12-11,13:00:00,18:00:00,,No,2023-12-14 21:16:31.008,"{'project_name': 'IT', 'created_at': '2023-12-14 21:16:31.008000', 'time_spent': '05:00'}"
+mristic,2023-12-12,10:00:00,14:00:00,,Yes,2023-12-14 21:05:35.232,"{'project_name': 'IT', 'created_at': '2023-12-14 21:05:35.232000', 'time_spent': '04:00'}"
+mristic,2023-12-13,14:00:00,18:00:00,,Yes,2023-12-14 21:05:53.376,"{'project_name': 'IT', 'created_at': '2023-12-14 21:05:53.376000', 'time_spent': '04:00'}"
+mristic,2023-12-14,13:00:00,16:00:00,,Yes,2023-12-14 21:06:27.936,"{'project_name': 'IT', 'created_at': '2023-12-14 21:06:27.936000', 'time_spent': '03:00'}"
+jalmendrasvilla,2023-12-14,17:30:00,21:30:00,,Yes,2023-12-14 21:31:42.528,"{'project_name': 'DSE Quality', 'created_at': '2023-12-14 21:31:42.528000', 'time_spent': '04:00'}"
+khayeche,2023-12-07,09:00:00,18:00:00,01:00,,2023-12-14 22:07:39.936,"{'project_name': 'DSE Jobs', 'created_at': '2023-12-14 22:07:39.936000', 'time_spent': '08:00'}"
+khayeche,2023-12-14,10:00:00,18:00:00,,Yes,2023-12-14 22:11:47.904,"{'project_name': 'DSE Jobs', 'created_at': '2023-12-14 22:11:47.904000', 'time_spent': '08:00'}"
+dsylari,2023-12-14,17:00:00,22:30:00,01:30,Yes,2023-12-14 22:48:16.416,"{'project_name': 'DSE Tech', 'created_at': '2023-12-14 22:48:16.416000', 'time_spent': '04:00'}"
+aminaeva,2023-12-14,15:00:00,21:00:00,,Yes,2023-12-15 00:02:28.608,"{'project_name': 'DSE Jobs', 'created_at': '2023-12-15 00:02:28.608000', 'time_spent': '06:00'}"
+mpietraszko,2023-12-14,09:00:00,13:00:00,,Yes,2023-12-15 08:16:54.912,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-15 08:16:54.912000', 'time_spent': '04:00'}"
+mpietraszko,2023-12-15,08:00:00,16:00:00,,Yes,2023-12-15 08:17:26.880,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-15 08:17:26.880000', 'time_spent': '08:00'}"
+mpietraszko,2023-12-18,09:00:00,16:00:00,,Yes,2023-12-15 08:18:03.168,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-15 08:18:03.168000', 'time_spent': '07:00'}"
+mpietraszko,2023-12-19,08:00:00,16:00:00,,Yes,2023-12-15 08:20:04.128,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-15 08:20:04.128000', 'time_spent': '08:00'}"
+mpietraszko,2023-12-20,08:00:00,12:00:00,,Yes,2023-12-15 08:20:38.688,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-15 08:20:38.688000', 'time_spent': '04:00'}"
+nmaupetit,2023-12-05,08:00:00,12:00:00,,Yes,2023-12-15 11:03:27.936,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-15 11:03:27.936000', 'time_spent': '04:00'}"
+nmaupetit,2023-12-08,08:15:00,10:30:00,,Yes,2023-12-15 11:04:12.864,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-15 11:04:12.864000', 'time_spent': '02:15'}"
+nmaupetit,2023-12-12,08:00:00,12:00:00,,Yes,2023-12-15 11:04:59.520,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-15 11:04:59.520000', 'time_spent': '04:00'}"
+nmaupetit,2023-12-15,08:15:00,10:30:00,,Yes,2023-12-15 11:05:47.904,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-15 11:05:47.904000', 'time_spent': '02:15'}"
+mkajo,2023-12-15,11:30:00,16:00:00,00:30,Yes,2023-12-15 16:04:10.848,"{'project_name': 'DSE Quality', 'created_at': '2023-12-15 16:04:10.848000', 'time_spent': '04:00'}"
+abueb,2023-12-15,12:00:00,16:30:00,00:00,Yes,2023-12-15 16:17:26.592,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-15 16:17:26.592000', 'time_spent': '04:30'}"
+dsylari,2023-12-15,12:00:00,16:30:00,00:30,Yes,2023-12-15 16:30:14.688,"{'project_name': 'DSE Tech', 'created_at': '2023-12-15 16:30:14.688000', 'time_spent': '04:00'}"
+idoebold,2023-12-15,14:30:00,17:30:00,,Yes,2023-12-15 17:33:35.424,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-15 17:33:35.424000', 'time_spent': '03:00'}"
+mshchelkunov,2023-12-15,12:00:00,16:00:00,,Yes,2023-12-16 10:36:09.792,"{'project_name': 'DSE Quality', 'created_at': '2023-12-16 10:36:09.792000', 'time_spent': '04:00'}"
+aminaeva,2023-12-16,18:00:00,19:30:00,,Yes,2023-12-17 18:45:24.192,"{'project_name': 'Sales B2B', 'created_at': '2023-12-17 18:45:24.192000', 'time_spent': '01:30'}"
+bsendziuk,2023-12-18,09:00:00,18:00:00,01:00,Yes,2023-12-18 11:35:53.664,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-18 11:35:53.664000', 'time_spent': '08:00'}"
+mkajo,2023-12-18,10:30:00,15:00:00,00:30,Yes,2023-12-18 15:07:53.472,"{'project_name': 'DSE Quality', 'created_at': '2023-12-18 15:07:53.472000', 'time_spent': '04:00'}"
+dsylari,2023-12-18,10:00:00,15:00:00,01:00,Yes,2023-12-18 15:17:28.032,"{'project_name': 'DSE Tech', 'created_at': '2023-12-18 15:17:28.032000', 'time_spent': '04:00'}"
+idoebold,2023-12-18,14:00:00,17:00:00,,Yes,2023-12-18 16:59:38.112,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-18 16:59:38.112000', 'time_spent': '03:00'}"
+abueb,2023-12-18,13:00:00,18:00:00,00:00,Yes,2023-12-18 17:02:37.824,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-18 17:02:37.824000', 'time_spent': '05:00'}"
+jalmendrasvilla,2023-12-18,09:00:00,17:30:00,,No,2023-12-18 17:34:08.256,"{'project_name': 'DSE Quality', 'created_at': '2023-12-18 17:34:08.256000', 'time_spent': '08:30'}"
+mshchelkunov,2023-12-18,11:00:00,15:00:00,,Yes,2023-12-18 19:55:17.184,"{'project_name': 'DSE Quality', 'created_at': '2023-12-18 19:55:17.184000', 'time_spent': '04:00'}"
+gleka,2023-12-18,18:05:00,22:05:00,00:00,Yes,2023-12-18 22:05:45.024,"{'project_name': 'DSE Tech', 'created_at': '2023-12-18 22:05:45.024000', 'time_spent': '04:00'}"
+sgoettsch,2023-12-19,08:30:00,11:30:00,,Yes,2023-12-19 11:53:23.424,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-19 11:53:23.424000', 'time_spent': '03:00'}"
+pstolpa2,2023-12-18,10:00:00,14:00:00,00:00,No,2023-12-19 12:12:26.496,"{'project_name': 'Sales B2B', 'created_at': '2023-12-19 12:12:26.496000', 'time_spent': '04:00'}"
+pstolpa2,2023-12-19,09:00:00,12:45:00,00:00,No,2023-12-19 12:13:07.968,"{'project_name': 'Sales B2B', 'created_at': '2023-12-19 12:13:07.968000', 'time_spent': '03:45'}"
+aminaeva,2023-12-18,11:15:00,16:05:00,,No,2023-12-19 14:49:07.680,"{'project_name': 'DSE Jobs', 'created_at': '2023-12-19 14:49:07.680000', 'time_spent': '04:50'}"
+idoebold,2023-12-19,14:00:00,16:00:00,,Yes,2023-12-19 16:12:05.184,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-19 16:12:05.184000', 'time_spent': '02:00'}"
+mshchelkunov,2023-12-19,11:00:00,15:00:00,,Yes,2023-12-20 11:23:47.904,"{'project_name': 'DSE Quality', 'created_at': '2023-12-20 11:23:47.904000', 'time_spent': '04:00'}"
+abueb,2023-12-19,09:00:00,18:00:00,01:00,Yes,2023-12-19 17:49:34.464,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-19 17:49:34.464000', 'time_spent': '08:00'}"
+bsendziuk,2023-12-19,09:00:00,18:00:00,01:00,Yes,2023-12-19 17:51:42.336,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-19 17:51:42.336000', 'time_spent': '08:00'}"
+mkajo,2023-12-19,12:30:00,16:30:00,,Yes,2023-12-19 18:19:41.088,"{'project_name': 'DSE Quality', 'created_at': '2023-12-19 18:19:41.088000', 'time_spent': '04:00'}"
+jalmendrasvilla,2023-12-19,11:45:00,19:15:00,,Yes,2023-12-19 19:21:31.104,"{'project_name': 'DSE Quality', 'created_at': '2023-12-19 19:21:31.104000', 'time_spent': '07:30'}"
+dsylari,2023-12-19,12:00:00,16:30:00,00:30,Yes,2023-12-19 20:20:11.040,"{'project_name': 'DSE Tech', 'created_at': '2023-12-19 20:20:11.040000', 'time_spent': '04:00'}"
+gleka,2023-12-19,12:30:00,21:30:00,01:00,Yes,2023-12-19 21:27:37.152,"{'project_name': 'DSE Tech', 'created_at': '2023-12-19 21:27:37.152000', 'time_spent': '08:00'}"
+aminaeva,2023-12-19,12:00:00,20:00:00,,Yes,2023-12-19 23:33:54.432,"{'project_name': 'Sales B2B', 'created_at': '2023-12-19 23:33:54.432000', 'time_spent': '08:00'}"
+pstolpa2,2023-12-20,08:45:00,13:15:00,00:30,No,2023-12-20 13:01:35.328,"{'project_name': 'Sales B2B', 'created_at': '2023-12-20 13:01:35.328000', 'time_spent': '04:00'}"
+mkajo,2023-12-20,11:30:00,16:00:00,00:30,No,2023-12-20 16:03:04.320,"{'project_name': 'DSE Quality', 'created_at': '2023-12-20 16:03:04.320000', 'time_spent': '04:00'}"
+dsylari,2023-12-20,12:00:00,16:30:00,00:30,No,2023-12-20 16:27:51.264,"{'project_name': 'DSE Tech', 'created_at': '2023-12-20 16:27:51.264000', 'time_spent': '04:00'}"
+bsendziuk,2023-12-20,09:00:00,18:00:00,01:00,Yes,2023-12-20 17:01:07.968,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-20 17:01:07.968000', 'time_spent': '08:00'}"
+mshchelkunov,2023-12-20,11:00:00,15:00:00,,Yes,2023-12-20 17:06:14.688,"{'project_name': 'DSE Quality', 'created_at': '2023-12-20 17:06:14.688000', 'time_spent': '04:00'}"
+gleka,2023-12-20,11:40:00,20:40:00,01:00,Yes,2023-12-20 20:38:25.728,"{'project_name': 'DSE Tech', 'created_at': '2023-12-20 20:38:25.728000', 'time_spent': '08:00'}"
+jalmendrasvilla,2023-12-20,17:15:00,21:15:00,,Yes,2023-12-20 21:16:18.912,"{'project_name': 'DSE Quality', 'created_at': '2023-12-20 21:16:18.912000', 'time_spent': '04:00'}"
+nmaupetit,2023-12-19,08:00:00,12:00:00,,Yes,2023-12-21 11:17:55.392,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-21 11:17:55.392000', 'time_spent': '04:00'}"
+nmaupetit,2023-12-20,08:15:00,10:30:00,,Yes,2023-12-21 11:18:29.088,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-21 11:18:29.088000', 'time_spent': '02:15'}"
+pstolpa2,2023-12-21,08:30:00,13:00:00,00:30,No,2023-12-21 12:48:46.368,"{'project_name': 'Sales B2B', 'created_at': '2023-12-21 12:48:46.368000', 'time_spent': '04:00'}"
+mkajo,2023-12-21,09:30:00,14:00:00,00:30,Yes,2023-12-21 14:07:00.480,"{'project_name': 'DSE Quality', 'created_at': '2023-12-21 14:07:00.480000', 'time_spent': '04:00'}"
+abueb,2023-12-21,09:00:00,18:00:00,01:00,Yes,2023-12-21 17:17:15.648,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-21 17:17:15.648000', 'time_spent': '08:00'}"
+rtao,2023-12-21,08:30:00,17:30:00,01:00,Yes,2023-12-21 17:51:00.864,"{'project_name': 'IT', 'created_at': '2023-12-21 17:51:00.864000', 'time_spent': '08:00'}"
+mshchelkunov,2023-12-21,11:00:00,15:00:00,,Yes,2023-12-21 19:45:14.112,"{'project_name': 'DSE Quality', 'created_at': '2023-12-21 19:45:14.112000', 'time_spent': '04:00'}"
+pstolpa2,2023-12-22,08:50:00,12:40:00,00:00,Yes,2023-12-22 12:10:58.368,"{'project_name': 'Sales B2B', 'created_at': '2023-12-22 12:10:58.368000', 'time_spent': '03:50'}"
+idoebold,2023-12-22,12:30:00,15:30:00,,Yes,2023-12-22 15:54:40.608,"{'project_name': 'Marketing B2C', 'created_at': '2023-12-22 15:54:40.608000', 'time_spent': '03:00'}"
+mristic,2023-12-18,14:00:00,18:00:00,,Yes,2023-12-22 16:58:33.312,"{'project_name': 'IT', 'created_at': '2023-12-22 16:58:33.312000', 'time_spent': '04:00'}"
+mristic,2023-12-19,10:00:00,14:00:00,,Yes,2023-12-22 16:59:09.600,"{'project_name': 'IT', 'created_at': '2023-12-22 16:59:09.600000', 'time_spent': '04:00'}"
+mristic,2023-12-21,14:00:00,18:00:00,,Yes,2023-12-22 17:00:37.728,"{'project_name': 'IT', 'created_at': '2023-12-22 17:00:37.728000', 'time_spent': '04:00'}"
+mkajo,2023-12-22,12:00:00,17:00:00,01:00,Yes,2023-12-22 17:03:39.168,"{'project_name': 'DSE Quality', 'created_at': '2023-12-22 17:03:39.168000', 'time_spent': '04:00'}"
+mristic,2023-12-22,13:00:00,17:00:00,,Yes,2023-12-22 17:09:11.808,"{'project_name': 'IT', 'created_at': '2023-12-22 17:09:11.808000', 'time_spent': '04:00'}"
+aminaeva,2023-12-20,18:00:00,22:00:00,,Yes,2023-12-22 17:44:51.936,"{'project_name': 'Sales B2B', 'created_at': '2023-12-22 17:44:51.936000', 'time_spent': '04:00'}"
+aminaeva,2023-12-22,14:00:00,17:30:00,,Yes,2023-12-22 18:07:24.096,"{'project_name': 'Sales B2B', 'created_at': '2023-12-22 18:07:24.096000', 'time_spent': '03:30'}"
+mshchelkunov,2023-12-22,11:00:00,15:00:00,,Yes,2023-12-22 18:17:02.976,"{'project_name': 'DSE Quality', 'created_at': '2023-12-22 18:17:02.976000', 'time_spent': '04:00'}"
+aminaeva,2023-12-17,10:00:00,12:30:00,,Yes,2023-12-22 18:19:39.360,"{'project_name': 'Sales B2B', 'created_at': '2023-12-22 18:19:39.360000', 'time_spent': '01:30'}"
+dsylari,2023-12-22,12:00:00,22:00:00,02:00,Yes,2023-12-22 22:07:02.784,"{'project_name': 'DSE Tech', 'created_at': '2023-12-22 22:07:02.784000', 'time_spent': '08:00'}"
+gleka,2023-12-26,15:30:00,23:30:00,00:00,Yes,2023-12-26 23:31:44.832,"{'project_name': 'DSE Tech', 'created_at': '2023-12-26 23:31:44.832000', 'time_spent': '08:00'}"
+mshchelkunov,2023-12-27,12:00:00,20:00:00,,Yes,2023-12-27 23:10:21.792,"{'project_name': 'DSE Quality', 'created_at': '2023-12-27 23:10:21.792000', 'time_spent': '08:00'}"
+aminaeva,2023-12-27,10:00:00,17:35:00,,Yes,2023-12-27 23:16:43.680,"{'project_name': 'Sales B2B', 'created_at': '2023-12-27 23:16:43.680000', 'time_spent': '05:00'}"
+dsylari,2023-12-27,12:30:00,23:30:00,03:00,Yes,2023-12-28 00:22:39.936,"{'project_name': 'DSE Tech', 'created_at': '2023-12-28 00:22:39.936000', 'time_spent': '08:00'}"
+mkajo,2023-12-27,12:00:00,23:30:00,03:30,Yes,2023-12-28 00:25:18.912,"{'project_name': 'DSE Quality', 'created_at': '2023-12-28 00:25:18.912000', 'time_spent': '08:00'}"
+mkajo,2023-12-28,12:00:00,16:00:00,,Yes,2023-12-28 16:17:15.360,"{'project_name': 'DSE Quality', 'created_at': '2023-12-28 16:17:15.360000', 'time_spent': '04:00'}"
+mshchelkunov,2023-12-28,10:00:00,18:00:00,,Yes,2023-12-28 18:16:12.000,"{'project_name': 'DSE Quality', 'created_at': '2023-12-28 18:16:12', 'time_spent': '08:00'}"
+jalmendrasvilla,2023-12-28,12:00:00,20:00:00,,Yes,2023-12-28 19:58:46.272,"{'project_name': 'DSE Quality', 'created_at': '2023-12-28 19:58:46.272000', 'time_spent': '08:00'}"
+gleka,2023-12-28,19:45:00,23:45:00,00:00,Yes,2023-12-29 00:10:00.480,"{'project_name': 'DSE Tech', 'created_at': '2023-12-29 00:10:00.480000', 'time_spent': '04:00'}"
+jalmendrasvilla,2023-12-29,12:00:00,20:00:00,,Yes,2023-12-29 19:59:01.824,"{'project_name': 'DSE Quality', 'created_at': '2023-12-29 19:59:01.824000', 'time_spent': '08:00'}"
+mkajo,2023-12-29,10:00:00,22:00:00,04:00,Yes,2023-12-30 15:23:46.464,"{'project_name': 'DSE Quality', 'created_at': '2023-12-30 15:23:46.464000', 'time_spent': '08:00'}"
+mshchelkunov,2023-12-29,11:00:00,15:00:00,,Yes,2023-12-30 16:07:23.520,"{'project_name': 'DSE Quality', 'created_at': '2023-12-30 16:07:23.520000', 'time_spent': '04:00'}"
+jalmendrasvilla,2023-12-30,14:00:00,18:00:00,,Yes,2023-12-30 17:59:28.896,"{'project_name': 'DSE Quality', 'created_at': '2023-12-30 17:59:28.896000', 'time_spent': '04:00'}"
+dherr,2023-12-06,23:00:00,23:50:00,,Yes,2023-12-31 00:09:56.160,"{'project_name': 'IT', 'created_at': '2023-12-31 00:09:56.160000', 'time_spent': '00:50'}"
+dherr,2023-12-09,10:05:00,19:10:00,00:50,Yes,2023-12-31 00:12:36.000,"{'project_name': 'IT', 'created_at': '2023-12-31 00:12:36', 'time_spent': '08:15'}"
+dherr,2023-12-28,09:40:00,19:55:00,01:40,Yes,2023-12-31 00:13:20.928,"{'project_name': 'IT', 'created_at': '2023-12-31 00:13:20.928000', 'time_spent': '08:35'}"
+dherr,2023-12-29,11:30:00,21:40:00,02:15,Yes,2023-12-31 00:13:50.304,"{'project_name': 'IT', 'created_at': '2023-12-31 00:13:50.304000', 'time_spent': '07:55'}"
+dherr,2023-12-30,13:05:00,23:55:00,03:30,Yes,2023-12-31 00:14:15.360,"{'project_name': 'IT', 'created_at': '2023-12-31 00:14:15.360000', 'time_spent': '07:20'}"
+dherr,2023-12-10,09:35:00,17:30:00,,Yes,2023-12-31 00:16:57.792,"{'project_name': 'IT', 'created_at': '2023-12-31 00:16:57.792000', 'time_spent': '07:55'}"
+gleka,2023-12-29,10:00:00,18:00:00,00:00,Yes,2024-01-02 00:48:52.416,"{'project_name': 'DSE Tech', 'created_at': '2024-01-02 00:48:52.416000', 'time_spent': '04:00'}"
+aminaeva,2023-12-29,18:00:00,21:00:00,,Yes,2024-01-02 14:06:59.616,"{'project_name': 'Sales B2B', 'created_at': '2024-01-02 14:06:59.616000', 'time_spent': '03:00'}"
+arahma,2023-12-18,08:00:00,17:00:00,01:00,No,2024-01-02 15:59:40.416,"{'project_name': 'DSE Tech', 'created_at': '2024-01-02 15:59:40.416000', 'time_spent': '08:00'}"
+arahma,2023-12-19,08:00:00,17:00:00,01:00,No,2024-01-02 16:00:11.520,"{'project_name': 'DSE Tech', 'created_at': '2024-01-02 16:00:11.520000', 'time_spent': '08:00'}"
+arahma,2023-12-20,08:00:00,13:00:00,01:00,No,2024-01-02 16:00:45.216,"{'project_name': 'DSE Tech', 'created_at': '2024-01-02 16:00:45.216000', 'time_spent': '04:00'}"
+nmaupetit,2023-12-27,08:00:00,12:00:00,,Yes,2024-01-10 16:24:42.048,"{'project_name': 'Marketing B2C', 'created_at': '2024-01-10 16:24:42.048000', 'time_spent': '04:00'}"
+nmaupetit,2023-12-29,08:15:00,10:30:00,,Yes,2024-01-10 16:25:26.976,"{'project_name': 'Marketing B2C', 'created_at': '2024-01-10 16:25:26.976000', 'time_spent': '02:15'}"
+mvadodaria,2023-12-18,08:00:00,17:00:00,01:00,No,2024-01-11 14:54:19.584,"{'project_name': 'Marketing B2C', 'created_at': '2024-01-11 14:54:19.584000', 'time_spent': '08:00'}"
+mvadodaria,2023-12-20,09:00:00,18:00:00,01:00,No,2024-01-11 14:55:04.512,"{'project_name': 'Marketing B2C', 'created_at': '2024-01-11 14:55:04.512000', 'time_spent': '08:00'}"
+mvadodaria,2023-12-19,08:00:00,17:00:00,01:00,No,2024-01-11 14:57:40.032,"{'project_name': 'Marketing B2C', 'created_at': '2024-01-11 14:57:40.032000', 'time_spent': '08:00'}"
+mvadodaria,2023-12-21,08:00:00,17:00:00,01:00,Yes,2024-01-11 14:58:48.288,"{'project_name': 'Marketing B2C', 'created_at': '2024-01-11 14:58:48.288000', 'time_spent': '08:00'}"
+mvadodaria,2023-12-22,09:00:00,17:00:00,01:00,Yes,2024-01-11 17:09:29.952,"{'project_name': 'Marketing B2C', 'created_at': '2024-01-11 17:09:29.952000', 'time_spent': '07:00'}"
+desfandyari,2023-12-14,09:00:00,13:00:00,00:00,Yes,2024-01-12 11:28:07.968,"{'project_name': 'Marketing B2C', 'created_at': '2024-01-12 11:28:07.968000', 'time_spent': '04:00'}"
+desfandyari,2023-12-18,10:00:00,14:00:00,00:00,Yes,2024-01-12 11:29:04.992,"{'project_name': 'Marketing B2C', 'created_at': '2024-01-12 11:29:04.992000', 'time_spent': '04:00'}"
+desfandyari,2023-12-19,09:00:00,13:00:00,00:00,Yes,2024-01-12 11:29:56.832,"{'project_name': 'Marketing B2C', 'created_at': '2024-01-12 11:29:56.832000', 'time_spent': '04:00'}"
+desfandyari,2023-12-20,09:00:00,15:00:00,00:00,Yes,2024-01-12 11:30:50.400,"{'project_name': 'Marketing B2C', 'created_at': '2024-01-12 11:30:50.400000', 'time_spent': '06:00'}"
+msarac,2023-12-15,10:00:00,18:00:00,00:00,No,2024-01-15 15:11:12.192,"{'project_name': 'IT', 'created_at': '2024-01-15 15:11:12.192000', 'time_spent': '08:00'}"
+msarac,2023-12-20,10:00:00,18:00:00,00:00,No,2024-01-15 15:12:04.032,"{'project_name': 'IT', 'created_at': '2024-01-15 15:12:04.032000', 'time_spent': '08:00'}"
+msarac,2023-12-21,13:00:00,17:00:00,00:00,No,2024-01-15 15:12:36.864,"{'project_name': 'IT', 'created_at': '2024-01-15 15:12:36.864000', 'time_spent': '04:00'}"
+msarac,2023-12-22,10:00:00,18:00:00,00:00,No,2024-01-15 15:13:20.064,"{'project_name': 'IT', 'created_at': '2024-01-15 15:13:20.064000', 'time_spent': '08:00'}"
+msarac,2023-12-27,13:00:00,17:00:00,00:00,Yes,2024-01-15 15:14:20.544,"{'project_name': 'IT', 'created_at': '2024-01-15 15:14:20.544000', 'time_spent': '04:00'}"
+msarac,2023-12-28,10:00:00,18:00:00,00:00,No,2024-01-15 15:14:56.832,"{'project_name': 'IT', 'created_at': '2024-01-15 15:14:56.832000', 'time_spent': '08:00'}"
+msarac,2023-12-29,10:00:00,14:00:00,00:00,Yes,2024-01-15 15:15:52.992,"{'project_name': 'IT', 'created_at': '2024-01-15 15:15:52.992000', 'time_spent': '04:00'}"

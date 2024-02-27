@@ -1,0 +1,13 @@
+name: PR Merged Workflow
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  print-source-branch:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print source branch name
+        run: echo "Source branch is ${{ github.event.pull_request.head.ref }}"
